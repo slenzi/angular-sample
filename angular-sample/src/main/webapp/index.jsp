@@ -8,7 +8,7 @@
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
 
-	<title>Angular + Jersey + Spring Sample</title>
+	<title>AngularJS + Jersey + Spring Sample</title>
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,9 +24,11 @@
 </head>
 <body>
 
+	<h2>Sample application integrating AngularJS + Spring + Jersey</h2>
+
 	<ul class="menu">
-		<li><a href="#/view1">view1</a></li>
-		<li><a href="#/view2">view2</a></li>
+		<li><a href="#/info">Info</a></li>
+		<li><a href="#/consume">REST Consume Test</a></li>
 	</ul>
 	
 	<!--[if lt IE 7]>
@@ -35,24 +37,8 @@
 	
 	<div ng-view></div>
 	
-	<div>Angular seed app: v<span app-version></span></div>
-	
-	<h2>Sample application integrating Angular + Spring + Jersey</h2>
-	
 	<p>
-	<a href="jersey/sample">fetch hello message (jersey/sample)</a>
-	</p>
-	
-	<p>
-	<a href="jersey/sample/count">fetch sample count (jersey/sample/count)</a>
-	</p>
-	
-	<p>
-	<a href="jersey/sample/1">fetch sample 1 (jersey/sample/1)</a>
-	</p>
-	
-	<p>
-	<a href="jersey/sample/samplejson">fetch sample as JSON (jersey/sample/samplejson)</a>
+		<div>Angular seed app: v<span app-version></span></div>
 	</p>	
 	
 	<!-- In production use:
@@ -60,6 +46,7 @@
 	-->
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/services.js"></script>
 	<script src="js/controllers.js"></script>

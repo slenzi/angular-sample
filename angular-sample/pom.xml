@@ -22,6 +22,8 @@
 	    <jackson.jaxrs.version>1.9.13</jackson.jaxrs.version>
 	    <tomcat.api.version>8.0.9</tomcat.api.version>
 	    <jersey.version>2.11</jersey.version>
+	    <apache.commons-io.version>2.4</apache.commons-io.version>
+	    <opencsv.version>2.3</opencsv.version>
 	</properties>	
 	
 	<dependencies>
@@ -47,6 +49,13 @@
 			<artifactId>tomcat-servlet-api</artifactId>
 			<version>${tomcat.api.version}</version>
 			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Apache Commons -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${apache.commons-io.version}</version>
 		</dependency>
 		
 		<!-- Jersey v2 -->
@@ -100,7 +109,15 @@
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-json-jackson</artifactId>
 			<version>${jersey.version}</version>
-		</dependency>		
+		</dependency>
+		
+		<!-- CSV parsing -->
+		<dependency>
+			<groupId>net.sf.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>${opencsv.version}</version>
+		</dependency>
+				
 		
 	</dependencies>
 	

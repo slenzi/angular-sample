@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * @author sal
  *
+ * Maps resources under classpath:/public to /public/**. This can be used to serve WebJars. 
  */
 @Configuration
 @EnableWebMvc

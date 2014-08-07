@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.lenzi.app.properties.AppProperties;
-import org.lenzi.service.jersey.SampleService;
+import org.lenzi.app.properties.ApplicationProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -32,7 +32,8 @@ public class SampleImpl implements Sample {
     }};
     
     @Autowired
-    private AppProperties appProps;
+    @Qualifier("SampleAppProperties")
+    private ApplicationProperties appProps;
 	
 	/**
 	 * 
@@ -43,7 +44,7 @@ public class SampleImpl implements Sample {
 
 	@Override
 	public String hello() {
-		return "Hello Jersey + Spring (v" + appProps.getAppVersion() + ")";
+		return "Hello Jersey + Spring (v" + appProps.getProperty("app.version") + ")";
 	}
 
 	@Override

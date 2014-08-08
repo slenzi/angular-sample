@@ -11,6 +11,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.lenzi.data.CsvDataLoader;
@@ -69,9 +70,31 @@ public class SampleService {
 	@GET
 	@Path("/alpha/{letter}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<HashMap<String, String>> getSample(@PathParam("letter") String letter) {
+	public List<HashMap<String, String>> findByAlpha(@PathParam("letter") String letter) {
 		String regEx = "^\\s*" + letter + ".*$";
 		return dataLoader.getData().fetch("Common Name", regEx);
 	}
+	
+	/**
+	 * Fetch all rows of data were "Common Name" starts with the value in 'name' param
+	 * and where "Capital" ends with value in 'capital' param.
+	 * 
+	 * @param letter
+	 * @return
+	 */
+	@GET
+	@Path("/find")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<HashMap<String, String>> findByNameCapital(@QueryParam("name") String name, @QueryParam("capital") String capital) {
+		String[] keys = new String[]{
+			"Common Name",
+			"Capital"
+		};
+		String[] regExs = new String[]{
+			"^\\s*" + name + ".*$",
+			"^.*" + capital + "\\s*$"
+		};
+		return dataLoader.getData().fetch(keys, regExs);
+	}	
 
 }

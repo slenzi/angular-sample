@@ -72,7 +72,7 @@ public class SampleService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<HashMap<String, String>> findByAlpha(@PathParam("letter") String letter) {
 		String regEx = "^\\s*" + letter + ".*$";
-		return dataLoader.getData().fetch("Common Name", regEx);
+		return dataLoader.getData().fetch("First", regEx);
 	}
 	
 	/**
@@ -85,14 +85,14 @@ public class SampleService {
 	@GET
 	@Path("/find")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<HashMap<String, String>> findByNameCapital(@QueryParam("name") String name, @QueryParam("capital") String capital) {
+	public List<HashMap<String, String>> findByNameCapital(@QueryParam("first") String first, @QueryParam("last") String last) {
 		String[] keys = new String[]{
-			"Common Name",
-			"Capital"
+			"First",
+			"Last"
 		};
 		String[] regExs = new String[]{
-			"^\\s*" + name + ".*$",
-			"^.*" + capital + "\\s*$"
+			"^\\s*" + first + ".*$",
+			"^.*" + last + "\\s*$"
 		};
 		return dataLoader.getData().fetch(keys, regExs);
 	}	

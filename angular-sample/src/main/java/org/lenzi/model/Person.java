@@ -1,0 +1,99 @@
+/**
+ * 
+ */
+package org.lenzi.model;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ * @author sal
+ *
+ */
+@XmlRootElement(name = "person")
+public class Person {
+
+	@XmlElement(name = "id")
+	private int id = 0;
+	
+	@XmlElement(name = "firstName")
+	private String firstName = null;
+	
+	@XmlElement(name = "middleName")
+	private String middleName = null;
+	
+	@XmlElement(name = "lastName")
+	private String lastName = null;
+	
+	/**
+	 * 
+	 */
+	public Person() {
+		
+	}
+
+	public Person(int id, String firstName, String middleName, String lastName) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	/**
+	 * @return the middleName
+	 */
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	/**
+	 * @param middleName the middleName to set
+	 */
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * @param lastName the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+}

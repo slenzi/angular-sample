@@ -10,7 +10,7 @@ var sampleServices = angular.module('myApp.services', ['ngResource']).
 // register a service called 'SampleDataService' which fetches data from our test REST Jersey service
 sampleServices.factory('SampleDataService', ['$resource',
 	function($resource){
-		return $resource('jersey/sample/keyset', {}, {
+		return $resource('jersey/person/all', {}, {
 			query: { method:'GET', isArray:true }
 		});
 	}]);

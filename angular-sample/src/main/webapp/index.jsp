@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
 	<link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/ng-grid/ng-grid.min.css">
 	<link rel="stylesheet" href="css/app.css"/>
 	
 	<script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -54,6 +55,9 @@
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-route/angular-route.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- angular & jquery must come before ng-grid -->
+	<script src="bower_components/ng-grid/ng-grid-2.0.12.min.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/services.js"></script>
 	<script src="js/controllers.js"></script>

@@ -32,7 +32,7 @@ public class SampleService {
 	private Logger logger = LoggerFactory.getLogger(SampleService.class);
 	
 	@Autowired
-	CsvDataLoader dataLoader = null;	
+	CsvDataLoader dataLoader = null;
 	
 	public SampleService() {
 		super();

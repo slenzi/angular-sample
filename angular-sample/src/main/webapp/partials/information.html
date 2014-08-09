@@ -1,23 +1,32 @@
+
 <p>
 Below are some direct links to our test RESTful service implemented using Jersey.
 </p>
 
 <p>
-Data is pulled from CSV file at WEB-INF\classes\csv\CountryList.csv
+Data is pulled from CountryList.csv & Names.csv under src/main/resources/csv
 </p>
 
 <p>
-<a href="jersey/sample/rowcount">fetch csv row count (jersey/sample/rowcount)</a>
+People service. Data is pulled from Names.csv. 
 </p>
 
 <p>
-<a href="jersey/sample/keyset">fetch data keyset as JSON (jersey/sample/keyset)</a>
+<ul>
+	<li><a href="jersey/person/1">fetch person 1 (jersey/person/1)</a></li>
+	<li><a href="jersey/person/all">fetch all people (jersey/person/all)</a></li>
+</ul>
 </p>
 
 <p>
-<a href="jersey/sample/alpha/S">fetch data rows where first name starts with 'S' (jersey/sample/alpha/S)</a>
+Sample service. Data is pulled from CountryList.csv. 
 </p>
 
 <p>
-<a href="jersey/sample/find?first=S&last=t">fetch data rows where first name starts with 'S' and last name ends with 't' (jersey/sample/find?first=S&last=t)</a>
+<ul>
+	<li><a href="jersey/sample/rowcount">fetch csv row count (jersey/sample/rowcount)</a></li>
+	<li><a href="jersey/sample/keyset">fetch data keyset as JSON (jersey/sample/keyset)</a></li>
+	<li><a href="jersey/sample/alpha/S">fetch data rows where first name starts with 'S' (jersey/sample/alpha/S)</a></li>
+	<li><a href="jersey/sample/find?first=S&last=t">fetch data rows where first name starts with 'S' and last name ends with 't' (jersey/sample/find?first=S&last=t)</a></li>
+</ul>
 </p>

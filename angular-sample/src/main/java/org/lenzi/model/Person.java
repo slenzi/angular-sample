@@ -3,6 +3,8 @@
  */
 package org.lenzi.model;
 
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -11,18 +13,19 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 @XmlRootElement(name = "person")
+@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 public class Person {
 
-	@XmlElement(name = "id")
+	@XmlElement(name = "id", required = true)
 	private int id = 0;
 	
-	@XmlElement(name = "firstName")
+	@XmlElement(name = "firstName", required = true)
 	private String firstName = null;
 	
-	@XmlElement(name = "middleName")
+	@XmlElement(name = "middleName" , required = false)
 	private String middleName = null;
 	
-	@XmlElement(name = "lastName")
+	@XmlElement(name = "lastName", required = true)
 	private String lastName = null;
 	
 	/**
@@ -32,6 +35,13 @@ public class Person {
 		
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @param firstName
+	 * @param middleName
+	 * @param lastName
+	 */
 	public Person(int id, String firstName, String middleName, String lastName) {
 		super();
 		this.id = id;

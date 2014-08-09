@@ -24,6 +24,7 @@ public class MyApplication extends ResourceConfig {
 	 */
 	public MyApplication() {
 		registerClass(SampleService.class);
+		registerClass(PersonService.class);
 		registerClass(JacksonFeature.class);
 	}
 	

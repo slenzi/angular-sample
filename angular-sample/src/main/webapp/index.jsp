@@ -8,7 +8,7 @@
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
 
-	<title>AngularJS + Jersey + Spring Sample</title>
+	<title>AngularJS + Jersey + Spring Sample!</title>
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,7 @@
 	
 	<link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
 	<link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/app.css"/>
 	
 	<script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -24,7 +25,13 @@
 </head>
 <body>
 
-	<h2>Sample application integrating AngularJS + Spring + Jersey</h2>
+<div class="container">
+<div class="col-md-8">
+	
+	<!-- PAGE TITLE -->
+	<div class="page-header">
+		<h1><span class="glyphicon glyphicon-tower"></span>Consuming Jersey REST services using AngularJS</h1>
+	</div>	
 
 	<ul class="menu">
 		<li><a href="#/info">Info</a></li>
@@ -52,6 +59,9 @@
 	<script src="js/controllers.js"></script>
 	<script src="js/filters.js"></script>
 	<script src="js/directives.js"></script>
+ 
+</div>
+</div>
   
 </body>
 </html>

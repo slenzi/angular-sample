@@ -10,33 +10,33 @@ Add new person by filling out form.
 
 <p>
 	<!-- FORM -->
-	<form>
+	<form ng-submit="processAddPersonForm()">
 
 		<!-- FIRST NAME -->
 		<div id="id-group" class="form-group">
 			<label>Id</label>
-			<input type="text" name="id" class="form-control" placeholder="" ng-model="formData.id">
+			<input type="text" name="id" class="form-control" placeholder="" ng-model="personFormData.id">
 			<span class="help-block"></span>
 		</div>
 	
 		<!-- FIRST NAME -->
 		<div id="fname-group" class="form-group">
 			<label>First Name</label>
-			<input type="text" name="firstName" class="form-control" placeholder="" ng-model="formData.firstName">
+			<input type="text" name="firstName" class="form-control" placeholder="" ng-model="personFormData.firstName">
 			<span class="help-block"></span>
 		</div>
 		
 		<!-- MIDDLE NAME -->
 		<div id="mname-group" class="form-group">
 			<label>Middle Name</label>
-			<input type="text" name="middleName" class="form-control" placeholder="" ng-model="formData.middleName">
+			<input type="text" name="middleName" class="form-control" placeholder="" ng-model="personFormData.middleName">
 			<span class="help-block"></span>
 		</div>
 		
 		<!-- LAST NAME -->
 		<div id="lname-group" class="form-group">
 			<label>Last Name</label>
-			<input type="text" name="lastName" class="form-control" placeholder="" ng-model="formData.lastName">
+			<input type="text" name="lastName" class="form-control" placeholder="" ng-model="personFormData.lastName">
 			<span class="help-block"></span>
 		</div>
 
@@ -51,7 +51,7 @@ Add new person by filling out form.
 <p>
 	<!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
 	<pre>
-		{{ formData }}
+		{{ personFormData }}
 	</pre>
 	
 </p>

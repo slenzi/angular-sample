@@ -27,7 +27,7 @@
 <body>
 
 <div class="container">
-<div class="col-md-8">
+<div class="col-md-10">
 	
 	<!-- PAGE TITLE -->
 	<div class="page-header">

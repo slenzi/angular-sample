@@ -21,12 +21,11 @@ controllerModule.controller('InfoController',
  * Controller for 'REST Consume Test' view.
  */
 controllerModule.controller('ConsumeTestController',
-	['$scope', 'SampleDataService', function($scope, SampleDataService) {
+	['$scope', 'PersonService', function($scope, PersonService) {
 		
-		// Use our SampleDataService object to fetch data from our test REST service (see services.js)
+		// Use our PersonService object to fetch data from our REST service (see services.js)
 		//$scope.sampleDataOut = SampleDataService.query();
-		$scope.personData = SampleDataService.query();
-		
+		$scope.personData = PersonService.query();
 		
 		// load ng-grid with some test data
 		/*
@@ -36,8 +35,17 @@ controllerModule.controller('ConsumeTestController',
 	                     {name: "Nephi", age: 29},
 	                     {name: "Enos", age: 34}];
 	    */
-	    
 	    $scope.gridOptions = { data: 'personData' };
+
+		//
+		// process add person form
+		//
+		$scope.personFormData = {};
+		$scope.processAddPersonForm = function() {
+
+			alert("Processing add person form!");
+			
+		};	    
 	    		
 		
 	}]

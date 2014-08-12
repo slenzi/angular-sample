@@ -11,6 +11,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -68,52 +69,9 @@ public class PersonService {
 	 * @return
 	 */
 	@GET
-	@Path("/all")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Person> getAllPeople() {
 		return personDb.getAllPeople();
-	}	
-	
-	/*
-	 @Produces(MediaType.TEXT_HTML)
-	 @QueryParam("firstName") String firstName
-	 @FormParam("firstName") String firstName
-	 method(@Context HttpServletResponse servletResponse)
-	 servletResponse.sendRedirect("../create_todo.html");
-	 return Response.status(Response.Status.BAD_REQUEST).build();
-	 */
-	
-	/**
-	 * Add new person.
-	 * 
-	 * Implements POST using @FormParam fields
-	 * 
-	 * @param id
-	 * @param firstName
-	 * @param middleName
-	 * @param lastName
-	 * @param servletResponse
-	 * @return the newly created person.
-	 * @throws WebApplicationException
-	 */
-	@POST
-	@Path("/addByForm")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public Response addPersonByFormParam(
-		@FormParam("id") Integer id,
-		@FormParam("firstName") String firstName,
-		@FormParam("middleName") String middleName,
-		@FormParam("lastName") String lastName,
-		@Context HttpServletResponse servletResponse) throws ServiceException {
-		
-		logger.debug(PersonService.class.getName() + " addPersonByFormParam called");
-		if(id == null || firstName == null || lastName == null){
-			throw new ServiceException("Missing required request form paramaters to create new person.");
-		}
-		Person p = new Person(id.intValue(),firstName,middleName,lastName);
-		personDb.addPerson(p);
-		return Response.ok(p, MediaType.APPLICATION_JSON).build();
 	}
 	
 	/**
@@ -126,14 +84,12 @@ public class PersonService {
 	 * @throws ServiceException
 	 */
 	@POST
-	@Path("/add")
 	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes({
-		MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML
-		})
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addPerson(Person p) throws ServiceException {
 		
 		logger.debug(PersonService.class.getName() + " addPerson called");
+		
 		if(p == null){
 			logger.debug("Person object is null.");
 		}else{
@@ -146,6 +102,16 @@ public class PersonService {
 		personDb.addPerson(p);
 		return Response.ok(p, MediaType.APPLICATION_JSON).build();	
 	}
+	
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updatePerson(Person p) throws ServiceException {
+		
+		logger.debug(PersonService.class.getName() + " updatePerson called");
+
+		return Response.ok("{ \"error\" : \"Not implemeneted\" }", MediaType.APPLICATION_JSON).build();	
+	}	
 
 	/**
 	 * Remove a person.
@@ -155,9 +121,12 @@ public class PersonService {
 	 * @throws ServiceException 
 	 */
 	@DELETE
-	@Path("/remove/{id}")
+	@Path("{id}")
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response deletePerson(@PathParam("id") int id) throws ServiceException {
+		
 		logger.debug(PersonService.class.getName() + " deletePerson called");
+		
 		Person p = personDb.removePerson(id);
 		if(p == null){
 			throw new ServiceException("No person exists with id " + id);
@@ -166,3 +135,50 @@ public class PersonService {
 	}
 
 }
+
+
+
+
+/*
+@Produces(MediaType.TEXT_HTML)
+@QueryParam("firstName") String firstName
+@FormParam("firstName") String firstName
+method(@Context HttpServletResponse servletResponse)
+servletResponse.sendRedirect("../create_todo.html");
+return Response.status(Response.Status.BAD_REQUEST).build();
+*/
+
+/**
+* Add new person.
+* 
+* Implements POST using @FormParam fields
+* 
+* @param id
+* @param firstName
+* @param middleName
+* @param lastName
+* @param servletResponse
+* @return the newly created person.
+* @throws WebApplicationException
+*/
+/*
+@POST
+@Path("/addByForm")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+public Response addPersonByFormParam(
+	@FormParam("id") Integer id,
+	@FormParam("firstName") String firstName,
+	@FormParam("middleName") String middleName,
+	@FormParam("lastName") String lastName,
+	@Context HttpServletResponse servletResponse) throws ServiceException {
+	
+	logger.debug(PersonService.class.getName() + " addPersonByFormParam called");
+	if(id == null || firstName == null || lastName == null){
+		throw new ServiceException("Missing required request form paramaters to create new person.");
+	}
+	Person p = new Person(id.intValue(),firstName,middleName,lastName);
+	personDb.addPerson(p);
+	return Response.ok(p, MediaType.APPLICATION_JSON).build();
+}
+*/

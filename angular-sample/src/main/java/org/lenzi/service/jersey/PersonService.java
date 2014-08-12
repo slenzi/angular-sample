@@ -107,6 +107,7 @@ public class PersonService {
 		@FormParam("lastName") String lastName,
 		@Context HttpServletResponse servletResponse) throws ServiceException {
 		
+		logger.debug(PersonService.class.getName() + " addPersonByFormParam called");
 		if(id == null || firstName == null || lastName == null){
 			throw new ServiceException("Missing required request form paramaters to create new person.");
 		}
@@ -131,6 +132,14 @@ public class PersonService {
 		MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML
 		})
 	public Response addPerson(Person p) throws ServiceException {
+		
+		logger.debug(PersonService.class.getName() + " addPerson called");
+		if(p == null){
+			logger.debug("Person object is null.");
+		}else{
+			logger.debug(p.toString());
+		}
+		
 		if(p.getId() == 0 || p.getFirstName() == null || p.getLastName() == null){
 			throw new ServiceException("Mising required data for creating new person.");
 		}
@@ -148,6 +157,7 @@ public class PersonService {
 	@DELETE
 	@Path("/remove/{id}")
 	public Response deletePerson(@PathParam("id") int id) throws ServiceException {
+		logger.debug(PersonService.class.getName() + " deletePerson called");
 		Person p = personDb.removePerson(id);
 		if(p == null){
 			throw new ServiceException("No person exists with id " + id);

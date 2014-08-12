@@ -106,4 +106,13 @@ public class Person {
 		this.lastName = lastName;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", firstName=" + firstName
+				+ ", middleName=" + middleName + ", lastName=" + lastName + "]";
+	}
+
 }

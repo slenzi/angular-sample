@@ -1,22 +1,25 @@
 <p>
-<h4>
-Here we consume our REST service with AngularJS
-</h4>
+	<h4>
+	Here we consume our REST service with AngularJS
+	</h4>
 </p>
 
 <p>
-Add new person by filling out form.
+	Add new person by filling out form.
 </p>
 
 <p>
+	<!-- SHOW ERROR/SUCCESS MESSAGES -->
+	<div id="messages" ng-show="addPersonMessage">{{ addPersonMessage }}</div>
+
 	<!-- FORM -->
 	<form ng-submit="processAddPersonForm()">
 
 		<!-- FIRST NAME -->
-		<div id="id-group" class="form-group">
+		<div id="id-group" class="form-group" ng-class="{ 'has-error' : errorId }">
 			<label>Id</label>
 			<input type="text" name="id" class="form-control" placeholder="" ng-model="personFormData.id">
-			<span class="help-block"></span>
+			<span class="help-block" ng-show="errorId">{{ errorId }}</span>
 		</div>
 	
 		<!-- FIRST NAME -->
@@ -57,15 +60,15 @@ Add new person by filling out form.
 </p>
 
 <p>
-<h4>Person Data</h4>
-{{sampleDataOut}}
+	<h4>Person Data</h4>
+	{{ sampleDataOut }}
 </p>
 
 <p>
-<div class="myGridStyle" ng-grid="gridOptions"></div>
+	<div class="myGridStyle" ng-grid="gridOptions"></div>
 </p>
 
 <p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
+	Showing of 'interpolate' filter:
+	{{ 'Current version is v%VERSION%.' | interpolate }}
 </p>

@@ -13,7 +13,7 @@
 	<div id="messages" ng-show="addPersonMessage">{{ addPersonMessage }}</div>
 
 	<!-- FORM -->
-	<form ng-submit="processAddPersonForm()">
+	<form name="addPersonForm" ng-submit="processAddPersonForm()">
 
 		<!-- FIRST NAME -->
 		<div id="id-group" class="form-group" ng-class="{ 'has-error' : errorId }">

@@ -34,7 +34,8 @@ controllerModule.controller('ConsumeTestController',
 	            { field: 'firstName', displayName: 'First Name' },
 	            { field: 'middleName', displayName: 'Middle Name' },
 	            { field: 'lastName', displayName: 'Last Name' },
-	            { displayName: 'Edit', cellTemplate: '<button id="editPersonBtn" type="button" class="btn btn-primary" ng-click="showEditPerson(row.entity)">Edit</button>' }
+	            { displayName: 'Edit', cellTemplate: '<button id="editPersonBtn" type="button" class="btn btn-small btn-primary" ng-click="showEditPerson(row.entity)">Edit</button>' },
+	            { displayName: 'Delete', cellTemplate: '<button id="deletePersonBtn" type="button" class="btn btn-small btn-danger" ng-click="deletePerson(row.entity)">Delete</button>' }
 	    	],
 	    	multiSelect: false
 	    };
@@ -45,17 +46,21 @@ controllerModule.controller('ConsumeTestController',
 		$scope.personFormData = {};
 		$scope.processAddPersonForm = function() {
 
-			alert("Processing add person form!");
+			console.log("Processing add person action");
 				
 			PersonAPI.service().save($scope.personFormData).$promise.then(
 				function(data) {
 					
+					// success handler
 					console.log("Person was added: " + data);
-					
 					$scope.personData = PersonAPI.service().query();
+					// clear form
+					$scope.addPersonForm.$pristine;
+					$scope.personFormData = {};
 					
 				}, function(error) {
 					
+					// error handler
 					console.log("Error, failed to add person: " + error);
 					
 				});
@@ -67,9 +72,34 @@ controllerModule.controller('ConsumeTestController',
 		//
 		$scope.showEditPerson = function(person) {
 			
-			alert('edit person: ' + JSON.stringify(person));
+			alert('edit person:\n' + JSON.stringify(person));
 			
-		}
+		};
+		
+		//
+		// Handle delete person button click
+		//
+		$scope.deletePerson = function(person) {
+			
+			console.log("Processing delete person action.");
+			
+			var deletePersonId = person.id;
+			
+			PersonAPI.service().delete({id: deletePersonId}).$promise.then(
+				function(data) {
+					
+					// success handler
+					console.log("Person was deleted: " + JSON.stringify(data));
+					$scope.personData = PersonAPI.service().query();
+					
+				}, function(error) {
+					
+					// error handler
+					console.log("Error, failed to delete person: " + error);
+					
+				});			
+			
+		};		
 	    		
 	}]
 );

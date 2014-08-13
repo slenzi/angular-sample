@@ -2,7 +2,9 @@
 
 /* Services */
 
-// Demonstrate how to register services
+/*
+ * Create services module with dependency on ngResource for consuming RESTful services.
+ */
 var sampleServices = angular.module('myApp.services', ['ngResource']).
 	value('version', '0.1');
 
@@ -13,7 +15,7 @@ sampleServices.factory('PersonAPI', [ '$resource',
     function($resource) {
 		return {
 			service: function() {
-				return $resource('jersey/person/:id', {personId:'@id'});			
+				return $resource('jersey/person/:id', {id:'@personId'});			
 			},
 			apiVersion: "Person API, v1.0"
 		}

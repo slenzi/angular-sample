@@ -13,7 +13,7 @@ Project is setup using default Maven project folder structure.
 
 From project root directory, where pom.xml is located, run:
 
-mvn jetty:run
+'mvn jetty:run'
 
 After Jetty server starts, access application at http://localhost:8080/
 
@@ -21,7 +21,7 @@ After Jetty server starts, access application at http://localhost:8080/
 
 From project root directory, where pom.xml is located, run:
 
-mvn package
+'mvn package'
 
 This will compile and generate a war file in the /target directory. Simply deploy
 war file to your container, and start.

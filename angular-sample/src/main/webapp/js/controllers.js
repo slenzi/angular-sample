@@ -26,8 +26,19 @@ controllerModule.controller('ConsumeTestController',
 		console.log(PersonAPI.apiVersion);
 		
 		$scope.personData = PersonAPI.service().query();
-	    $scope.gridOptions = { data: 'personData' };
-
+		
+	    $scope.gridOptions = {
+	    	data: 'personData',
+	    	columnDefs: [
+	            { field: 'id', displayName: 'Id' },
+	            { field: 'firstName', displayName: 'First Name' },
+	            { field: 'middleName', displayName: 'Middle Name' },
+	            { field: 'lastName', displayName: 'Last Name' },
+	            { displayName: 'Edit', cellTemplate: '<button id="editPersonBtn" type="button" class="btn btn-primary" ng-click="showEditPerson(row.entity)">Edit</button>' }
+	    	],
+	    	multiSelect: false
+	    };
+	    
 		//
 		// process add person form
 		//
@@ -49,7 +60,16 @@ controllerModule.controller('ConsumeTestController',
 					
 				});
 			
-		};	    
+		};
+		
+		//
+		// Handle edit person button click
+		//
+		$scope.showEditPerson = function(person) {
+			
+			alert('edit person: ' + JSON.stringify(person));
+			
+		}
 	    		
 	}]
 );

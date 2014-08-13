@@ -9,7 +9,7 @@ Provides example code for consuming a REST service using Angular's ngResource mo
 
 Project is setup using default Maven project folder structure.
 
-# Run method one
+### Run method one
 
 From project root directory, where pom.xml is located, run:
 
@@ -17,7 +17,7 @@ mvn jetty:run
 
 After Jetty server starts, access application at http://localhost:8080/
 
-# Run method two
+### Run method two
 
 From project root directory, where pom.xml is located, run:
 
@@ -26,7 +26,7 @@ mvn package
 This will compile and generate a war file in the /target directory. Simply deploy
 war file to your container, and start.
 
-# Run method three
+### Run method three
 
 From within Eclipse, setup a server (e.g. Tomcat.)
 

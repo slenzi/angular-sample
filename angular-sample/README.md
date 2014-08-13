@@ -34,6 +34,10 @@ Right click properties for angular-sample project:
  * under "server" specify your server
  * under "targeted Runtimes" specify your server
  * under "Deployment Assembly" click "Add" and make sure the "Maven Dependencies" are added.
+ 
+The, right click project and select Runs As > Run on Server.
+
+By default application will load in Eclipse's internal browser. 
 
 
 
